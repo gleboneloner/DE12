@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="cover"></div>
+
+    <canvas id="canvas" width="1200" height="800"></canvas>
+
+    <div id="panel">
+
+        <div>
+            <div class="text"> MAP SIZE (W|H) </div>
+            <div class="divider"></div>
+            <input type="text" value="1200" id="map-width" onchange="changeMapSise()" placeholder="uint" short>
+            <div class="divider"></div>
+            <input type="text" value="800" id="map-height" onchange="changeMapSise()" placeholder="uint" short>
+        </div>
+
+        <div>
+            <div class="text"> AMOUNT (N) </div>
+            <div class="divider"></div>
+            <input type="text" value="1000000" id="amount" onchange="changePopulationSize()" placeholder="uint" long>
+        </div>
+
+        <div>
+            <div class="button" onclick="pause()"> PAUSE </div>
+            <div class="divider"></div>
+            <div class="button" onclick="resume()"> RESUME </div>
+            <div class="divider"></div>
+            <div class="button" onclick="stretch()"> STRETCH </div>
+            <div class="divider"></div>
+            <div class="button" onclick="respawn()"> RESPAWN </div>
+        </div>
+
+        <div>
+            <div class="text" id="stats-fr"> FR:00.00 </div>
+            <div class="divider"></div>
+            <div class="text" id="stats-dt"> DT:00.00 </div>
+        </div>
+
+    </div>
+
+    <div id="board">
+
+        <div class="controller">
+            <svg id="encoder-so"></svg>
+            <div> SO </div>
+            <div> I </div>
+        </div>
+
+        <div class="controller">
+            <svg id="encoder-sa"></svg>
+            <div> SA </div>
+            <div> I </div>
+        </div>
+
+        <div class="controller">
+            <svg id="encoder-ra"></svg>
+            <div> RA </div>
+            <div> I </div>
+        </div>
+
+        <div class="controller">
+            <svg id="encoder-df"></svg>
+            <div> DF </div>
+            <div> I </div>
+        </div>
+
+        <div class="controller">
+            <svg id="encoder-ms"></svg>
+            <div> MS </div>
+            <div> I </div>
+        </div>
+
+    </div>
+
+    <script src="scripts/GUIEncoder.js"></script>
+    <script src="scripts/FPSMeter.js"></script>
+    <script src="scripts/script.js"></script>
+
+</body>
+</html>
