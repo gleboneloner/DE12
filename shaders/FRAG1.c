@@ -2,12 +2,12 @@
 
 precision highp float;
 
-flat in float segment;
+in float domain;
 
 out vec4 color;
 
 void main () {
 
-    color = vec4( segment, 0, 0, 1 );
+    color.x = domain;
 
 }

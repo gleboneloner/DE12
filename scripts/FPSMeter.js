@@ -1,5 +1,8 @@
 function FPSMeter () {
 
+    const elemFR = document.getElementById( "stats-fr" );
+    const elemDT = document.getElementById( "stats-dt" );
+
     var count = 0, time = null;
 
     this.update = function () {
@@ -10,13 +13,15 @@ function FPSMeter () {
 
             setInterval( function () {
 
-                var delta = new Date().getTime()-time; time += delta;
+                var delta = new Date().getTime() - time;
 
                 var FR = count/(delta/1000);
                 var DT = delta/count;
 
-                document.getElementById("stats-fr").textContent = "FR:" + FR.toFixed(2);
-                document.getElementById("stats-dt").textContent = "DT:" + DT.toFixed(2);
+                elemFR.textContent = "FR:" + FR.toFixed(2);
+                elemDT.textContent = "DT:" + DT.toFixed(2);
+
+                time += delta;
 
                 count = 0;
 

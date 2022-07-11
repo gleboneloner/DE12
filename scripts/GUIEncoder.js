@@ -1,4 +1,6 @@
-function GUIEncoder ( svg, min, max, value ) {
+function GUIEncoder ( identifier, min, max, value ) {
+
+    var svg = document.getElementById( identifier );
 
     svg.setAttribute( "width", "60" );
     svg.setAttribute( "height", "60" );
@@ -67,7 +69,9 @@ function GUIEncoder ( svg, min, max, value ) {
 
     ////////////////////////
 
-    var pressed = false, minAngle = 60, maxAngle = 300, currentAngle = minAngle+(maxAngle-minAngle)*(value-min)/(max-min);
+    var pressed = false, minAngle = 60, maxAngle = 300;
+
+    var currentAngle = minAngle+(maxAngle-minAngle)*(value-min)/(max-min);
 
     handle.setAttribute( "transform", "rotate( " + currentAngle + " 30 30 )" );
 
@@ -89,11 +93,11 @@ function GUIEncoder ( svg, min, max, value ) {
 
     ////////////////////////
 
-    svg.addEventListener( "mousedown", ( event ) => { pressed = true; update( event.clientX, event.clientY ); } );
+    svg.addEventListener( "mousedown", event => { pressed = true; update( event.clientX, event.clientY ); } );
 
-    window.addEventListener( "mouseup", ( event ) => { pressed = false; } );
+    window.addEventListener( "mouseup", event => { pressed = false; } );
 
-    window.addEventListener( "mousemove", ( event ) => { if ( pressed ) update( event.clientX, event.clientY ); } );
+    window.addEventListener( "mousemove", event => { if ( pressed ) update( event.clientX, event.clientY ); } );
 
     ////////////////////////
 
@@ -104,15 +108,3 @@ function GUIEncoder ( svg, min, max, value ) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-//
